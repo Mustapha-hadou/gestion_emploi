@@ -1,0 +1,56 @@
+﻿@model miniPrpject_Asp.Models.Local
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h5>Etes Vous Sure de Supprimer ce Local?</h5>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TypeLocal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TypeLocal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacite)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacite)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.localisation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.localisation)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Retour", "List")
+        </div>
+    }
+</div>

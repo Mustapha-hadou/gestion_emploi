@@ -1,0 +1,68 @@
+﻿
+@{
+    ViewBag.Title = "Programer_Emploi";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<div class="col col-lg-8" style="margin:8px;margin-left:80px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Programer Emploi</h5>
+        </div>
+        @using (Html.BeginForm("Programer_emploi_etap1", "Admin", FormMethod.Post, new { @class = "myForm" }))
+        {
+    <div class="row">
+        <div class="col-8">
+            <table>
+                <tr>
+                    <td>
+                        <div>
+                            @Html.Label("classe", "Classe :")
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DropDownList("classe", ViewBag.classes as SelectList, "Sélectionner une classe")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            @Html.Label("semaine", "Semaine :")
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DropDownList("semaine", ViewBag.semaines as SelectList, "Sélectionner une semaine")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <div>
+                            @Html.Label("annee", "Année universitaire :")
+                        </div>
+                    </td>
+                    <td>
+                        @Html.DropDownList("annee", ViewBag.annees as SelectList, "Sélectionner une année")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="submit" value="Afficher" class="btn btn-primary" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+
+            
+
+
+        }
+
+        
+    </div>
+    </div>
+
+
+
+    
+

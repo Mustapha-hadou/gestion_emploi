@@ -1,0 +1,133 @@
+﻿@model IEnumerable<miniPrpject_Asp.Models.DetailEmploi>
+@using GridMvc.Html
+
+@{
+    ViewBag.Title = "Programer_emploi_etap1";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" />
+<link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+<script src="@Url.Content("~/Scripts/jquery-3.4.1.min.js")"></script>
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")"></script>
+
+
+
+
+<table id="tableau" class="table table-bordered" style="width:800px">
+    <thead>
+        <tr>
+            <th>
+
+            </th>
+            <th>8-10</th>
+            <th>10-12</th>
+            <th>12-14</th>
+            <th>14-16</th>
+            <th>16-18</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @{ string[] tab = new string[] { "lundi", "mardi", "mercredi", "jedui", "vendredi", "samedi" };
+            for (int i = 0; i < tab.Length; i++)
+            {
+                <tr>
+                    <th>@tab[i]</th>
+                    @{int k = i * 5;
+                        for (int j = k; j < k + 5; j++)
+                        {
+                            <th>
+                                @{ int cont = 1;
+                                    foreach (var line in Model)
+                                    {
+                                        if (@line.Seance.Id == j + 1)
+                                        {
+                                            cont = 2;
+                                            @line.Cours.Nom <br />
+                                            @line.Local.Nom
+
+
+                                        }
+
+
+                                    }
+                                    if (@cont == 1)
+                                    {
+                                        <input id="btn" type="submit" value="+" />
+                                    }
+                                }
+                            </th>
+                        }
+                    }
+
+                </tr>
+            }
+        }
+
+
+
+    </tbody>
+</table>
+
+
+<div id="formul" class="col col-md-4 " style="margin:8px;margin-left:80px ;margin-top:-280px;">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ajouter un examen</h5>
+        </div>
+        <table>
+            <tr>
+                <td>
+                    <div>
+                        @Html.Label("classe", "Classe :")
+                    </div>
+                </td>
+                <td>
+                    @Html.DropDownList("classe", ViewBag.classes as SelectList, "Sélectionner une classe")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        @Html.Label("semaine", "Semaine :")
+                    </div>
+                </td>
+                <td>
+                    @Html.DropDownList("semaine", ViewBag.semaines as SelectList, "Sélectionner une semaine")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        @Html.Label("annee", "Année universitaire :")
+                    </div>
+                </td>
+                <td>
+                    @Html.DropDownList("annee", ViewBag.annees as SelectList, "Sélectionner une année")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" value="Afficher" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $("#formul").hide();
+    });
+    
+   
+    $(
+        "#btn"
+    ).click(function pageLoad() {
+        $("#formul").show();
+    })
+
+
+
+</script>

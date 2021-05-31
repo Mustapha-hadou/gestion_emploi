@@ -1,0 +1,5 @@
+﻿Enable-Migrations -ContextTypeName EmploiContext -MigrationsDirectory Migrations\Emploi -Force
+add-migration -ConfigurationTypeName miniPrpject_Asp.Migrations.Emploi.Configuration "InitialCreate" -Force
+  
+ Update-Database -ConfigurationTypeName miniPrpject_Asp.Migrations.Emploi.Configuration  
+  

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<miniPrpject_Asp.Models.Local>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-8"><table class="table ">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeLocal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Capacite)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.localisation)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeLocal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Capacite)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nom)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.localisation)
+            </td>
+            <td>
+                @Html.ActionLink("Modifier", "Edit", new { id = item.Id }) |
+                 @Html.ActionLink("Supprimer", "Delete", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table></div>
+
+
+</div>
+
